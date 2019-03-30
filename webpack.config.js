@@ -22,6 +22,7 @@ const commonConfig = merge([
   },
   parts.loadJS({include: path.join(__dirname, 'src')}),
 ])
+
 const developmentConfig = merge([
   {
     output: {
@@ -34,6 +35,7 @@ const developmentConfig = merge([
     port: 3011,
   }),
 ])
+
 const productionConfig = merge([
   {
     plugins: [
@@ -41,10 +43,36 @@ const productionConfig = merge([
     ]
   },
 ])
-module.exports = mode => {
-  if (mode === 'production')
-    return merge(commonConfig, productionConfig, {mode})
 
-  else if (mode === 'development')
-    return merge(commonConfig, developmentConfig, {mode})
+const watch = merge([
+  {
+    mode: 'development',
+    watch: true,
+    entry: {
+      main: './src/index.js'
+    },
+    output: {
+      path: path.join(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        title: 'runJs',
+        favicon: 'src/favicon.png'
+      }),
+    ]
+  },
+  parts.loadJS({include: path.join(__dirname, 'src')}),
+])
+
+module.exports = mode => {
+  switch (mode) {
+    case 'production':
+      return merge(commonConfig, productionConfig, {mode})
+    case 'development':
+      return merge(commonConfig, developmentConfig, {mode})
+    case 'watch':
+      return watch
+  }
 }
