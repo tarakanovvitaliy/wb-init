@@ -6,6 +6,7 @@ exports.devServer = ({host, port} = {}) => ({
     host, // Defaults to `localhost`
     port, // Defaults to 8080
     historyApiFallback: true,
+    publicPath: '/',
     open: false,
     overlay: true,
     hot: true,

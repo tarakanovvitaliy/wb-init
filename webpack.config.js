@@ -4,7 +4,7 @@ const parts = require('./webpack.parts')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const commonConfig = merge([
+const main = merge([
   {
     entry: {
       main: './src/index.js'
@@ -23,20 +23,17 @@ const commonConfig = merge([
   parts.loadJS({include: path.join(__dirname, 'src')}),
 ])
 
-const developmentConfig = merge([
+const dev = merge([
   {
-    output: {
-      publicPath: '/',
-    },
     devtool: 'inline-source-map',
   },
   parts.devServer({
     host: process.env.HOST,
-    port: 3011,
+    port: 3033,
   }),
 ])
 
-const productionConfig = merge([
+const prod = merge([
   {
     plugins: [
       new CleanWebpackPlugin(),
@@ -69,9 +66,9 @@ const watch = merge([
 module.exports = mode => {
   switch (mode) {
     case 'production':
-      return merge(commonConfig, productionConfig, {mode})
+      return merge(main, prod, {mode})
     case 'development':
-      return merge(commonConfig, developmentConfig, {mode})
+      return merge(main, dev, {mode})
     case 'watch':
       return watch
   }
