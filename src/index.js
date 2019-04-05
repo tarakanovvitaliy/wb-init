@@ -1,7 +1,9 @@
+import app from './app'
 
+app()
 
-console.log('hello')
-
-async function f() {
-  return 1;
+if (module.hot) {
+  module.hot.accept('./app.js', () => {
+    app()
+  })
 }
