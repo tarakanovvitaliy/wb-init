@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --env development'",
     "production": "webpack --env production",
     "watch": "webpack --env watch"
   },

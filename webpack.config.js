@@ -71,5 +71,7 @@ module.exports = mode => {
       return merge(main, dev, {mode})
     case 'watch':
       return watch
+    default:
+      throw new Error('npm scripts: error width --env flag')
   }
 }
