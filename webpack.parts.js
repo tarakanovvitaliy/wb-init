@@ -2,7 +2,7 @@ const webpack = require('webpack')
 
 exports.devServer = ({host, port} = {}) => ({
   devServer: {
-    // stats: 'errors-only',
+    stats: 'errors-only',
     host, // Defaults to `localhost`
     port, // Defaults to 8080
     historyApiFallback: true,
