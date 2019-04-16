@@ -18,7 +18,11 @@ const main = merge([
         title: 'runJs',
         favicon: 'src/favicon.png'
       }),
-    ]
+    ],
+    resolve: {
+      modules: [path.resolve(__dirname, './src'), 'node_modules'],
+      extensions: ['.js', '.jsx', '.json'],
+    },
   },
   parts.loadJS({include: path.join(__dirname, 'src')}),
 ])
