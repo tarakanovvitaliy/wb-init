@@ -33,7 +33,7 @@ const dev = merge([
   },
   parts.devServer({
     host: process.env.HOST,
-    port: 3033,
+    port: 3044,
   }),
 ])
 
