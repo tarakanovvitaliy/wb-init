@@ -1,5 +1,3 @@
-Minimal webpack template for run js only.
-
 **Included**
 * babel
 * webpack-dev-server
