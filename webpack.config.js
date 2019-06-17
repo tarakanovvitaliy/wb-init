@@ -2,7 +2,7 @@ const path = require('path')
 const merge = require('webpack-merge')
 const parts = require('./webpack.parts')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 const main = merge([
   {
@@ -33,7 +33,7 @@ const dev = merge([
   },
   parts.devServer({
     host: process.env.HOST,
-    port: 3044,
+    port: 3055,
   }),
 ])
 
