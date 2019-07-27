@@ -4,9 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch webpack.config.js --exec 'webpack-dev-server --env development'",
-    "prod": "webpack --env production",
-    "watch": "webpack --env watch"
+    "start":  "nodemon --watch webpack.config.js --exec 'webpack-dev-server --env development'",
+    "prod":   "webpack --env production",
+    "watch":  "webpack --env watch"
   },
   "browserslist": [
     "maintained node versions",
